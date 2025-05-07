@@ -9,23 +9,23 @@ const connectdb = require('./config/connectdb');
 
 const PORT = 8080 || process.env.PORT;
 const app = express()
-require('dotenv').config()
+require('dotenv').config() 
 
 app.use(cors());
 app.use(express.json())
 app.use(morgan('dev'))
 
 
-connectdb()
-// mongoose.connect(process.env.MONGO_URL)
-// const conn = mongoose.connection
-// conn.on("error", ()=>{
-//     console.log("error while connecting to DB")
-// })
-// conn.once("open", ()=>{
-//     console.log("connected to DB")
-//     // init();
-// })
+// connectdb()
+mongoose.connect(process.env.MONGO_URL)
+const conn = mongoose.connection
+conn.on("error", ()=>{
+    console.log("error while connecting to DB")
+})
+conn.once("open", ()=>{
+    console.log("connected to DB")
+    // init();
+})
 
 
 
@@ -44,6 +44,5 @@ app.use('/expensetracker/api/v1/transactions', require('./routes/transaction.rou
 app.listen(PORT, ()=>{
     console.log(`Server started on PORT ${PORT}`)
 })
-
 
 

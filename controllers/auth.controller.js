@@ -18,7 +18,6 @@ exports.register = async (req, res, next)=>{
         const copyUsername = await userModels.findOne({username})
         if(copyUsername){
             return res.json({status : false, message : "Failed! Username already used"})
-                
         }
         const copyEmail = await userModels.findOne({email})
         if(copyEmail){
