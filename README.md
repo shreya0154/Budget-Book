@@ -1,3 +1,3 @@
 Budget-Book is an Expense Tracker System built on MERN stack. 
 
-Used for tracking your daily expenses efficiently.
+Link to the site : https://et-frontend-iz5b.onrender.com/
